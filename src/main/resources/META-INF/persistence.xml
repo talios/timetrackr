@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+      http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+    <persistence-unit name="timetrackr" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.theoryinpractice.timetrackr.vo.User</class>
+        <class>com.theoryinpractice.timetrackr.vo.Activity</class>
+        <class>com.theoryinpractice.timetrackr.vo.WorkItem</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+            <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:derby:target/timetrackr;create=true"/>
+            <!--<property name="hibernate.connection.username" value="root"/>-->
+            <!--<property name="hibernate.connection.password" value=""/>-->
+            <property name="hibernate.show_sql" value="false"/>
+
+            <!-- Change to 'create' to drop/create the database tables on startup -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

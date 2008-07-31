@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Time Tracker</title>
+        <link rel="stylesheet" href="/main.css" type="text/css"/>
+    </head>
+
+    <body>
+        <center>
+            <div style="font-size: 14pt;">
+                <div class="bl"><div class="br"><div class="tl"><div class="trthin">
+                    <b>Add New Activity</b>
+                </div></div></div></div>
+            </div>
+
+            <div class="clear">&nbsp;</div>
+        </center>
+
+        <form method="post" wicket:id="addActivity">
+            <fieldset>
+                <div>
+                    <label>Activity Name:</label>
+                    <input wicket:id="name" id="name" name="name" type="text">
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <textarea rows="5" wicket:id="description"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Add New Activity">
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
+

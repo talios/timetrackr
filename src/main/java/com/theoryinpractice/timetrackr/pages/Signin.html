@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Time Tracker</title>
+        <link rel="stylesheet" href="/main.css" type="text/css"/>
+    </head>
+
+    <body>
+        <center>
+            <div style="font-size: 14pt;">
+                <div class="bl"><div class="br"><div class="tl"><div class="tr">
+                    <b>Signin</b>
+                </div></div></div></div>
+            </div>
+
+            <div class="clear">&nbsp;</div>
+
+            <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+                <a wicket:id="signUpButton">Sign Up</a>
+                <wicket:link><a href="About.html">About</a></wicket:link>
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <form method="post" wicket:id="login">
+                <fieldset>
+                    <div class="required">
+                        <label for="username">User Name:</label>
+                        <input id="username" type="text" wicket:id="username">
+                    </div>
+
+                    <div class="required">
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" wicket:id="password"><br/>
+                    </div>
+
+                    <div class="required">
+                        <input type="submit" value="Login">
+                    </div>
+                </fieldset>
+            </form>
+
+        </center>
+    </body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.sourceforge.net/" xml:lang="en" lang="en">
+    <wicket:head>
+        <script type="text/javascript">
+            function submitWork(form, e) {
+                if (window.Event) {
+                    key = e.which;
+                } else {
+                    key = event.keyCode;
+                }
+
+                if (key == 13) {
+                    form.submit();
+                }
+            }
+
+            function toggleVisibleDetails(id) {
+                var element = document.getElementById(id);
+
+                element.className = element.className == "displayhide" ? "displayshow" : "displayhide";
+            }
+        </script>
+    </wicket:head>
+
+    <body>
+        <wicket:panel>
+            <div class="activitydetails">
+
+
+                <div class="activitydetails-header">
+                    <span class="activitydetails-description" wicket:id="description">
+                    description
+                    </span>
+                    <span class="activitydetails-delete"><a wicket:id="deleteActivity">delete</a></span>
+                </div>
+
+                <div class="activitydetails-comments" wicket:id="workItems">
+                    <span class="activitydetails-comment" wicket:id="comment">comment</span>
+                    <span class="activitydetails-length" wicket:id="time">length</span>
+                </div>
+
+                <div class="workItemForm">
+                    <form method="post" wicket:id="newWorkItem">
+                        <textarea class="workentry" rows="5" style="width: 100%;" wicket:id="comment"></textarea>
+                        <a wicket:id="submitLink">Add New Work Entry</a>
+                    </form>
+                </div>
+            </div>
+        </wicket:panel>
+    </body>
+</html>

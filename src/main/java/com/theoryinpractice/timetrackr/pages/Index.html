@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Time Tracker</title>
+        <link rel="stylesheet" href="/main.css" type="text/css"/>
+    </head>
+
+    <body>
+        <div class="bl"><div class="br"><div class="tl"><div class="tr">
+            <div style="font-size: 13pt; vertical-align: middle; text-align: center;">
+                <b>Total Time:&nbsp;</b><span wicket:id="totalTime">total</span>
+            </div>
+
+            <div style="font-size: 10pt;" wicket:id="feedback">FEEDBACK</div>
+        </div></div></div>
+        </div>
+
+        <div class="clear">&nbsp;</div>
+
+        <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+            <a wicket:id="stopWorkButton">Stop work</a>
+            <a wicket:id="addActivityButton">Add Activity</a>
+            <a wicket:id="emailReportButton">Email Report</a>
+            <a wicket:id="archiveWorkButton">Archive</a>
+            <a wicket:id="deleteAccountButton">Delete Account</a>
+            <a wicket:id="logoutButton">Logout</a>
+            <wicket:link><a href="ListUsers.html">List Users</a></wicket:link>
+            <wicket:link><a href="About.html">About</a></wicket:link>
+        </div>
+
+        <div style="padding-top: 5px">
+            <div class="activities" wicket:id="activities">
+                <div wicket:id="activityHeader" class="activity-header">
+                    <span class="activity-name" wicket:id="name">Name</span>
+                    <span class="activity-time" wicket:id="activityTime">length</span>
+                </div>
+
+                <div wicket:id="activityDetails"></div>
+            </div>
+        </div>
+
+    </body>
+</html>
+

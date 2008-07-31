@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Time Tracker</title>
+        <link rel="stylesheet" href="/main.css" type="text/css"/>
+        <style type="text/css">
+            div#outer-users {
+                background-color: #aaccee;
+                padding: 5 5 5 5;
+            }
+
+            div#users {
+                background-color: #bbddaa;
+            }
+
+            div#user {
+                width: 100%;
+                background-color: #bbddff;
+                display: table;
+            }
+
+            div#user .name {
+                width: 25%;
+                float: left;
+            }
+
+            div#user .email {
+                width: 75%;
+                float: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="bl"><div class="br"><div class="tl"><div class="tr">
+            <div style="font-size: 13pt; vertical-align: middle; text-align: center;">
+                <b>All Users</b>
+            </div>
+        </div></div></div>
+        </div>
+
+        <div class="clear">&nbsp;</div>
+
+        <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+            <a wicket:id="logoutButton">Logout</a>
+            <wicket:link><a href="About.html">About</a></wicket:link>
+        </div>
+
+        <div id="outer-users" style="padding-top: 5px">
+            <div wicket:id="users">
+                <div id="user">
+                    <div class="name" wicket:id="name">Name</div>
+
+                    <div class="email" wicket:id="email">Email</div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+

@@ -1,0 +1,84 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+       default-autowire="byName">
+
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="location" value="file:///etc/timetrackr.properties"/>-->
+    <!--</bean>-->
+
+    <bean id="wicketApplication" class="com.theoryinpractice.timetrackr.TimeTrackrApplication"/>
+
+    <bean id="timeTrackrAuthorizationStrategy" class="com.theoryinpractice.timetrackr.TimeTrackrAuthorizationStrategy"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="timetrackr"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
+
+    <tx:annotation-driven/>
+
+    <bean
+            class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+
+    <!--
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+            <property name="annotatedClasses">
+                <list>
+                    <value>com.theoryinpractice.timetrackr.vo.User</value>
+                    <value>com.theoryinpractice.timetrackr.vo.Activity</value>
+                    <value>com.theoryinpractice.timetrackr.vo.WorkItem</value>
+                </list>
+            </property>
+
+            <property name="entityCacheStrategies">
+                <props>
+                    <prop key="com.theoryinpractice.timetrackr.vo.User">read-write</prop>
+                    <prop key="com.theoryinpractice.timetrackr.vo.Activity">read-write</prop>
+                    <prop key="com.theoryinpractice.timetrackr.vo.WorkItem">read-write</prop>
+                </props>
+            </property>
+            <property name="hibernateProperties">
+                <props>
+                    <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                    <prop key="hibernate.show_sql">false</prop>
+                    <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                    <prop key="hibernate.cache.use_query_cache">true</prop>
+                    <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+                    <prop key="hibernate.max_fetch_depth">0</prop>
+                    <prop key="hibernate.jdbc.batch_size">0</prop>
+                    <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                </props>
+            </property>
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+    -->
+
+    <bean id="configuration" class="com.theoryinpractice.timetrackr.vo.ConfigurationImpl">
+        <property name="adminEmailAddress" value="${smtp.from.email}"/>
+        <property name="adminPersonalName" value="${smtp.from.personal}"/>
+        <property name="smtpHost" value="${smtp.host}"/>
+    </bean>
+
+    <bean id="userManager" class="com.theoryinpractice.timetrackr.data.UserManagerImpl">
+        <property name="activityManager" ref="activityManager"/>
+    </bean>
+
+    <bean id="activityManager" class="com.theoryinpractice.timetrackr.data.ActivityManagerImpl"/>
+
+    <!--<bean id="freeMarkerConfiguration" class="freemarker.template.Configuration">-->
+        <!--<property name="directoryForTemplateLoading"-->
+                  <!--value="C:\Documents and Settings\Mark Derricutt\IdeaProjects\timetrackr\src/main/java/com/theoryinpractice/timetrackr/pages"/>-->
+        <!--<property name="objectWrapper">-->
+            <!--<bean class="freemarker.template.DefaultObjectWrapper"/>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+</beans>

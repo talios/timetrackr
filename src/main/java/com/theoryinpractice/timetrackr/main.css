@@ -1,0 +1,199 @@
+BODY {
+    font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif;
+    font-size: x-small;
+    line-height: 110%;
+}
+
+.displayhide {
+    display: none;
+}
+
+.displayshow {
+    display: block;
+}
+
+a:active, a:visited, a:link {
+    color: navy;
+    text-decoration: none;
+    text-transform: lowercase;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a:hover {
+    background-color: navajowhite;
+    text-decoration: none;
+}
+
+.bl {
+    background: url( /images/bl.gif ) 0 100% no-repeat #e68200;
+    width: 100%
+}
+
+.br {
+    background: url( /images/br.gif ) 100% 100% no-repeat
+}
+
+.tl {
+    background: url( /images/tl.gif ) 0 0 no-repeat
+}
+
+.tr {
+    background: url( /images/tr.gif ) 100% 0 no-repeat;
+    padding: 10px
+}
+
+.trthin {
+    background: url( /images/tr.gif ) 100% 0 no-repeat;
+    padding: 2px
+}
+
+.clear {
+    font-size: 1px;
+    height: 1px
+}
+
+.blgrey {
+    background: url( /images/bl-grey.gif ) 0 100% no-repeat #929292;
+    width: 100%
+}
+
+.brgrey {
+    background: url( /images/br-grey.gif ) 100% 100% no-repeat
+}
+
+.tlgrey {
+    background: url( /images/tl-grey.gif ) 0 0 no-repeat
+}
+
+.trgrey {
+    background: url( /images/tr-grey.gif ) 100% 0 no-repeat;
+    padding: 10px
+}
+
+.trgreythin {
+    background: url( /images/tr-grey.gif ) 100% 0 no-repeat;
+    padding: 2px
+}
+
+div.activities {
+}
+
+div.activity-header {
+    background-color: #AA0050;
+    display: table;
+    width: 100%;
+    color: #EEEEEE;
+}
+
+div.activity-header span.activity-name {
+    font-weight: bold;
+    float: left;
+    text-align: left;
+}
+
+div.activity-header span.activity-time {
+    float: right;
+    text-align: right;
+}
+
+.activitydetails {
+    display: block;
+    background-color: #fefeef;
+    border-top: 1px solid #CCCCCC;
+}
+
+div.activitydetails-header {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #EEEEEE
+}
+
+div.activitydetails-header span.activitydetails-description {
+    float: left;
+}
+
+div.activitydetails-header span.activitydetails-delete {
+    float: right;
+}
+
+div.activitydetails-comments {
+    display: table;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-bottom: 1px solid #EEEEEE
+}
+
+div.activitydetails-comments span.activitydetails-comment {
+    float: left;
+}
+
+div.activitydetails-comments span.activitydetails-length {
+    float: right;
+}
+
+div.workitemactive {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+div.workitemactive span.activitydetails-comment {
+    float: left;
+}
+
+div.workitemactive span.activitydetails-length {
+    float: right;
+}
+
+.workItemForm {
+    display: block;
+    width: 100%;
+}
+
+.workItemForm textarea {
+    background-color: #fefefe;
+    color: #666666;
+    border: 1px solid #CCCCCC;
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+}
+
+form fieldset {
+    clear: both;
+    font-size: 100%;
+    border: none;
+    padding: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+form div {
+    clear: left;
+    display: block;
+    width: 354px;
+    margin: 5px 0px 0px 0px;
+    padding: 1px 3px;
+}
+
+form div label {
+    display: block;
+    float: left;
+    width: 130px;
+    padding: 3px 5px;
+    margin: 0px 0px 5px 0px;
+    text-align: right;
+    font-weight: bold;
+}
+
+form div input, form div select, form div textarea {
+    width: 200px;
+    padding: 1px 3px;
+    margin: 0px 0px 0px 0px;
+}
