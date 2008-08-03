@@ -16,8 +16,17 @@ import com.theoryinpractice.timetrackr.vo.WorkItem;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.google.gxp.base.GxpContext;
+import com.theoryinpractice.timetrackr.gxp.WorkItemSummary;
+
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.markup.html.link.Link;
+
+import javax.mail.*;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeBodyPart;
 
 public class EmailReportLink extends Link {
 
@@ -40,10 +49,6 @@ public class EmailReportLink extends Link {
         User user = session.refreshUser();
 
         String reportForDate = SimpleDateFormat.getDateTimeInstance().format(new Date());
-        Map root = new HashMap();
-        root.put("reportForDate", reportForDate);
-        root.put("user", user);
-        root.put("formattedTimeFor", TimeFormat.format(userManager.calculateTimeForUser(user, Boolean.FALSE)));
 
         List activities = new ArrayList();
         for (Activity activity : user.getActivities()) {
@@ -54,13 +59,16 @@ public class EmailReportLink extends Link {
             activities.add(stuff);
         }
 
-        root.put("activities", activities);
-
         try {
 
             StringBuilder sb = new StringBuilder();
-            WorkItemSummary.write(sb, new com.google.gxp.base.GxpContext(Locale.getDefault()));
-            /*
+            WorkItemSummary.write(
+                    sb, new GxpContext(Locale.getDefault()),
+                    reportForDate,
+                    TimeFormat.format(userManager.calculateTimeForUser(user, Boolean.FALSE)),
+                    activities
+            );
+
             Properties props = new Properties();
             props.put("mail.smtp.host", configuration.getSmtpHost());
             props.put("mail.smtp.auth", "false");
@@ -78,7 +86,7 @@ public class EmailReportLink extends Link {
             Multipart mixedMessage = new MimeMultipart("mixed");
 
             BodyPart bodyPartText = new MimeBodyPart();
-            bodyPartText.setContent(sw.toString(), "text/html");
+            bodyPartText.setContent(sb.toString(), "text/html");
 
             mixedMessage.addBodyPart(bodyPartText);
             message.setContent(mixedMessage);
@@ -87,10 +95,8 @@ public class EmailReportLink extends Link {
             transport.connect();
             transport.send(message);
 
-            */
-
             Index resultPage = new Index(null);
-            resultPage.getFeedbackMessages().info(resultPage, "Email Report Sent");
+            resultPage.info("Email Report Sent");
             setResponsePage(resultPage);
 
 

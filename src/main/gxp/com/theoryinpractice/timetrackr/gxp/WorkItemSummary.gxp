@@ -1,8 +1,51 @@
 <!DOCTYPE gxp:template SYSTEM "http://gxp.googlecode.com/svn/trunk/resources/xhtml.ent">
 <gxp:template name='com.theoryinpractice.timetrackr.gxp.WorkItemSummary'
               xmlns='http://www.w3.org/1999/xhtml'
-              xmlns:gxp='http://google.com/2001/gxp'>
+              xmlns:gxp='http://google.com/2001/gxp'
+              xmlns:msg='http://google.com/2001/gxp/msg'>
 
-Hello World!
+    <gxp:import package="java.util"/>
+    <gxp:import package="com.theoryinpractice.timetrackr.vo"/>
+    <gxp:import package="com.theoryinpractice.timetrackr.pages"/>
+
+    <gxp:param name="reportForDate" type='String'/>
+    <gxp:param name="formattedTimeFor" type='String'/>
+    <gxp:param name="activities" type='List{ActivityReport}'/>
+
+
+    <html>
+        <head>
+            <title><gxp:msg>Welcome!</gxp:msg></title>
+        </head>
+
+        <body>
+            <p><gxp:msg>Your times at
+                <gxp:eval gxp:ph="reportForDate" expr="reportForDate"/>
+                total <gxp:eval gxp:ph="formattedTimeFor" expr="formattedTimeFor"/>, and are broken down as:</gxp:msg>
+            </p>
+
+            <ul>
+                <gxp:loop var='report' type='ActivityReport' iterable='activities'>
+                    <gxp:if cond='report.getTimeFor() > 0'>
+                        <li>
+                            <p>
+                                <b>
+                                    <gxp:eval expr='report.getActivity().getName()'/>
+                                    - <gxp:eval expr='report.getFormattedTimeFor()'/>.
+                                </b>
+                            </p>
+                            <gxp:loop var='item' type='WorkItem' iterable='report.getWorkItems()'>
+                                <p>
+                                    <gxp:eval expr='item.getComment()'/>
+                                </p>
+                            </gxp:loop>
+                        </li>
+                    </gxp:if>
+
+                </gxp:loop>
+            </ul>
+        </body>
+    </html>
+
 
 </gxp:template>
