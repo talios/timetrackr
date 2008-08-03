@@ -1,0 +1,8 @@
+<!DOCTYPE gxp:template SYSTEM "http://gxp.googlecode.com/svn/trunk/resources/xhtml.ent">
+<gxp:template name='com.theoryinpractice.timetrackr.gxp.WorkItemSummary'
+              xmlns='http://www.w3.org/1999/xhtml'
+              xmlns:gxp='http://google.com/2001/gxp'>
+
+Hello World!
+
+</gxp:template>

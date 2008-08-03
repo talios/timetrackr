@@ -56,18 +56,11 @@ public class EmailReportLink extends Link {
 
         root.put("activities", activities);
 
-        /*
         try {
-            freemarker.template.Configuration freemarker = new freemarker.template.Configuration();
-            freemarker.setClassForTemplateLoading(getClass(), "");
-            freemarker.setObjectWrapper(new DefaultObjectWrapper());
 
-            Template temp = freemarker.getTemplate("todaysTimeEmail.ftl");
-
-            StringWriter sw = new StringWriter();
-            temp.process(root, sw, new DefaultObjectWrapper());
-            sw.flush();
-
+            StringBuilder sb = new StringBuilder();
+            WorkItemSummary.write(sb, new com.google.gxp.base.GxpContext(Locale.getDefault()));
+            /*
             Properties props = new Properties();
             props.put("mail.smtp.host", configuration.getSmtpHost());
             props.put("mail.smtp.auth", "false");
@@ -94,14 +87,18 @@ public class EmailReportLink extends Link {
             transport.connect();
             transport.send(message);
 
+            */
+
             Index resultPage = new Index(null);
             resultPage.getFeedbackMessages().info(resultPage, "Email Report Sent");
             setResponsePage(resultPage);
+
+
         } catch (Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
-        */
+        
     }
 
 }

@@ -7,15 +7,16 @@
 package com.theoryinpractice.timetrackr.pages;
 
 import com.theoryinpractice.timetrackr.vo.Activity;
+import com.theoryinpractice.timetrackr.vo.WorkItem;
 
 import java.util.List;
 
 public class ActivityReport {
     private Activity activity;
     private Long timeFor;
-    private List workItems;
+    private List<WorkItem> workItems;
 
-    public ActivityReport(Activity activity, Long timeFor, List workItems) {
+    public ActivityReport(Activity activity, Long timeFor, List<WorkItem> workItems) {
         this.activity = activity;
         this.timeFor = timeFor;
         this.workItems = workItems;
@@ -37,11 +38,11 @@ public class ActivityReport {
         this.timeFor = timeFor;
     }
 
-    public List getWorkItems() {
+    public List<WorkItem> getWorkItems() {
         return workItems;
     }
 
-    public void setWorkItems(List workItems) {
+    public void setWorkItems(List<WorkItem> workItems) {
         this.workItems = workItems;
     }
 

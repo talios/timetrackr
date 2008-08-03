@@ -62,9 +62,9 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     -->
 
     <bean id="configuration" class="com.theoryinpractice.timetrackr.vo.ConfigurationImpl">
-        <property name="adminEmailAddress" value="${smtp.from.email}"/>
-        <property name="adminPersonalName" value="${smtp.from.personal}"/>
-        <property name="smtpHost" value="${smtp.host}"/>
+        <property name="adminEmailAddress" value="mark@talios.com"/>
+        <property name="adminPersonalName" value="Time Trackr"/>
+        <property name="smtpHost" value="smtp.xnet.co.nz"/>
     </bean>
 
     <bean id="userManager" class="com.theoryinpractice.timetrackr.data.UserManagerImpl">
