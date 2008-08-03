@@ -53,6 +53,13 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+              <id>javanet</id>
+              <name>dev.java.net</name>
+              <url>http://download.java.net/maven/2</url>
+              <layout>default</layout>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -143,13 +150,11 @@
         </dependency>
 
         <dependency>
-            <groupId>javamail</groupId>
-            <artifactId>mail`</artifactId>
-            <version>0.2.2</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/gxp-snapshot.jar</systemPath>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.2-SNAPSHOT</version>
         </dependency>
-
+        
         <!--  JETTY DEPENDENCIES FOR TESTING  -->
 
         <dependency>
@@ -174,6 +179,10 @@
 
     <build>
         <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>target/src/gxp</directory>
+            </resource>
             <resource>
                 <filtering>false</filtering>
                 <directory>src/main/resources</directory>
@@ -227,7 +236,7 @@
 
                                 <gxpc srcdir="src/main/gxp"
                                       srcpaths="src/main/gxp"
-                                      destdir="target/src/gxp/java"
+                                      destdir="target/src/gxp"
                                       target="com.theoryinpractice.timetrackr.gxp.messages"
                                       i18nwarn="false"/>
 
@@ -262,7 +271,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>target/src/gxp/java</source>
+                                <source>target/src/gxp</source>
                             </sources>
                         </configuration>
                     </execution>
