@@ -76,7 +76,18 @@ public class EmailReportLink extends Link {
             props.put("mail.smtp.host", configuration.getSmtpHost());
             props.put("mail.smtp.auth", Boolean.toString(useAuth));
 
-            Session mailSession = Session.getInstance(props);
+            Session mailSession;
+            if (useAuth) {
+                mailSession = Session.getInstance(props, new Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(configuration.getSmtpUser(), configuration.getSmtpPassword());
+                    }
+                });
+            } else {
+                mailSession = Session.getInstance(props);
+            }
+
+            mailSession.setDebug(true);
             MimeMessage message = new MimeMessage(mailSession);
 
             InternetAddress[] addressTo = new InternetAddress[]{new InternetAddress(user.getEmailAddress(), user.getPersonalName())};
