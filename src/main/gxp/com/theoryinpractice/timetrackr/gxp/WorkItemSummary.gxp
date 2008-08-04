@@ -20,8 +20,8 @@
 
         <body>
             <p><gxp:msg>Your times at
-                <gxp:eval gxp:ph="reportForDate" expr="reportForDate"/>
-                total <gxp:eval gxp:ph="formattedTimeFor" expr="formattedTimeFor"/>, and are broken down as:</gxp:msg>
+                <gxp:eval example="Monday, 5th" gxp:ph="reportForDate" expr="reportForDate"/>
+                total <gxp:eval example="5 hours" gxp:ph="formattedTimeFor" expr="formattedTimeFor"/>, and are broken down as:</gxp:msg>
             </p>
 
             <ul>

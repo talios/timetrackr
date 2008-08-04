@@ -11,6 +11,14 @@ public interface Configuration {
 
     void setSmtpHost(String smtpHost);
 
+    String getSmtpUser();
+
+    void setSmtpUser(String smtpuser);
+
+    String getSmtpPassword();
+
+    void setSmtpPassword(String smtpPassword);
+
     String getAdminPersonalName();
 
     void setAdminPersonalName(String adminPersonalName);

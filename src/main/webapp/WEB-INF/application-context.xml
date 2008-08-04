@@ -30,6 +30,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
         <property name="adminEmailAddress" value="${adminEmailAddress}"/>
         <property name="adminPersonalName" value="${adminPersonalName}"/>
         <property name="smtpHost" value="${smtpHost}"/>
+        <property name="smtpUser" value="${smtpUser}"/>
+        <property name="smtpPassword" value="${smtpPassword}"/>
     </bean>
 
     <bean id="userManager" class="com.theoryinpractice.timetrackr.data.UserManagerImpl">

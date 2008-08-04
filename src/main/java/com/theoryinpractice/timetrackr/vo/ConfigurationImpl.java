@@ -8,6 +8,8 @@ package com.theoryinpractice.timetrackr.vo;
 
 public class ConfigurationImpl implements Configuration {
     private String smtpHost;
+    private String smtpUser;
+    private String smtpPassword;
     private String adminPersonalName;
     private String adminEmailAddress;
 
@@ -17,6 +19,22 @@ public class ConfigurationImpl implements Configuration {
 
     public void setSmtpHost(String smtpHost) {
         this.smtpHost = smtpHost;
+    }
+
+    public String getSmtpUser() {
+        return smtpUser;
+    }
+
+    public void setSmtpUser(String smtpUser) {
+        this.smtpUser = smtpUser;
+    }
+
+    public String getSmtpPassword() {
+        return smtpPassword;
+    }
+
+    public void setSmtpPassword(String smtpPassword) {
+        this.smtpPassword = smtpPassword;
     }
 
     public String getAdminPersonalName() {

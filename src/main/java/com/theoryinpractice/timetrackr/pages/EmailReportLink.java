@@ -14,6 +14,7 @@ import com.theoryinpractice.timetrackr.vo.Configuration;
 import com.theoryinpractice.timetrackr.vo.User;
 import com.theoryinpractice.timetrackr.vo.WorkItem;
 import java.text.SimpleDateFormat;
+import java.text.MessageFormat;
 import java.util.*;
 
 import com.google.gxp.base.GxpContext;
@@ -69,9 +70,11 @@ public class EmailReportLink extends Link {
                     activities
             );
 
+            boolean useAuth = configuration.getSmtpUser() != null && !"".equals(configuration.getSmtpUser());
+
             Properties props = new Properties();
             props.put("mail.smtp.host", configuration.getSmtpHost());
-            props.put("mail.smtp.auth", "false");
+            props.put("mail.smtp.auth", Boolean.toString(useAuth));
 
             Session mailSession = Session.getInstance(props);
             MimeMessage message = new MimeMessage(mailSession);
@@ -92,7 +95,17 @@ public class EmailReportLink extends Link {
             message.setContent(mixedMessage);
 
             Transport transport = mailSession.getTransport("smtp");
-            transport.connect();
+
+            if (useAuth) {
+                transport.connect(configuration.getSmtpUser(), configuration.getSmtpPassword());
+            } else {
+                transport.connect();
+            }
+
+            System.out.println(MessageFormat.format("Sending email from {0} to {1} via {2} with username {3} and password {4}",
+                    configuration.getAdminEmailAddress(), user.getEmailAddress(), configuration.getSmtpHost(), configuration.getSmtpUser(), configuration.getSmtpPassword()
+            ));
+
             transport.send(message);
 
             Index resultPage = new Index(null);
@@ -104,7 +117,7 @@ public class EmailReportLink extends Link {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
-        
+
     }
 
 }
