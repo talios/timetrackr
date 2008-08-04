@@ -87,7 +87,6 @@ public class EmailReportLink extends Link {
                 mailSession = Session.getInstance(props);
             }
 
-            mailSession.setDebug(true);
             MimeMessage message = new MimeMessage(mailSession);
 
             InternetAddress[] addressTo = new InternetAddress[]{new InternetAddress(user.getEmailAddress(), user.getPersonalName())};
