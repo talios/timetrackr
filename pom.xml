@@ -31,7 +31,7 @@
         <hibernate.version>3.2.6.ga</hibernate.version>
         <hibernate.annotations.version>3.3.0.ga</hibernate.annotations.version>
         <hibernate.entitymanager.version>3.3.1.ga</hibernate.entitymanager.version>
-        <jetty.version>6.1.4</jetty.version>
+        <jetty.version>6.1.17</jetty.version>
     </properties>
 
     <repositories>
